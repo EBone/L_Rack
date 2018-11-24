@@ -1,0 +1,8 @@
+file(GLOB pffft_h *h)
+file(GLOB pffft_c *c)
+source_group( pffft_h FILES ${pffft_h})
+source_group( pffft_c FILES ${pffft_c})
+
+add_library(pffft STATIC ${pffft_h} ${pffft_c})
+add_executable(pffft_test pffft_test/test_pffft.c)
+target_link_libraries(pffft_test pffft)

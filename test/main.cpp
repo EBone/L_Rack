@@ -278,7 +278,7 @@ int main()
     glEnable(GL_LINE_SMOOTH);
     
     
-    g_image = nsvgParseFromFile("E:/Codes/Rack/dep/nanosvg/example/nano.svg", "px", 96.0f);
+    g_image = nsvgParseFromFile("C:/wkspace/L_Rack/dep/nanosvg/example/nano.svg", "px", 96.0f);
     if (g_image == NULL) {
         printf("Could not open SVG image.\n");
         glfwTerminate();

@@ -4,4 +4,4 @@ project("Rack")
 include_directories(./include ./dep ./include/dep ./dep/pffft)
 
 add_subdirectory(test)
-#add_subdirectory(dep)
+add_subdirectory(dep)
