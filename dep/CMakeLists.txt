@@ -1,2 +1,5 @@
 add_subdirectory(pffft)
 add_subdirectory(glfw)
+add_subdirectory(jansson)
+add_subdirectory(glew)
+include_directories(osdialog)

@@ -1,6 +1,7 @@
+#include "config.hpp"
 #include "util/common.hpp"
 
-#include <dirent.h>
+#include <dirent.hpp>
 #include <sys/stat.h>
 
 #if ARCH_WIN

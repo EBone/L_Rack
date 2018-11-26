@@ -1,7 +1,7 @@
 #pragma once
 #include "app.hpp"
 #include "asset.hpp"
-
+#include <corecrt_math_defines.h>
 
 namespace rack {
 

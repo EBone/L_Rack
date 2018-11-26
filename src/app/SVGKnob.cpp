@@ -1,5 +1,5 @@
 #include "app.hpp"
-
+#include <corecrt_math_defines.h>
 
 namespace rack {
 

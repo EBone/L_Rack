@@ -3,14 +3,14 @@
 #include "asset.hpp"
 #include "util/request.hpp"
 #include "osdialog.h"
-
+#include "config.hpp"
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
-#include <unistd.h>
+#include <unistd.hpp>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <sys/param.h> // for MAXPATHLEN
+//#include <sys/param.h> // for MAXPATHLEN
 #include <fcntl.h>
 #include <thread>
 #include <stdexcept>
@@ -25,8 +25,9 @@
 	#define mkdir(_dir, _perms) _mkdir(_dir)
 #else
 	#include <dlfcn.h>
+	#include <dirent.h>
 #endif
-#include <dirent.h>
+
 
 
 namespace rack {

@@ -13,13 +13,19 @@
 #include "util/color.hpp"
 
 #include "osdialog.h"
-#include <unistd.h>
+#include "config.hpp"
 
 #ifdef ARCH_WIN
 	#include <Windows.h>
+#else
+	#include <unistd.h>
 #endif
 
 using namespace rack;
+extern int opterr;
+extern int optind;
+extern char* optarg;
+extern int getopt(int argc, char* const argv[], const char* optstring);
 
 
 int main(int argc, char* argv[]) {

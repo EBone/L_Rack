@@ -1,0 +1,3 @@
+project("osdialog")
+
+add_library(osdialog osdialog.c osdialog.h osdialog_win.c)

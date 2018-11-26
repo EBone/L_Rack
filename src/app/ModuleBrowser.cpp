@@ -1,4 +1,4 @@
-#include "app.hpp"
+﻿#include "app.hpp"
 #include "plugin.hpp"
 #include "window.hpp"
 #include <set>

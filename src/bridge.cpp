@@ -1,17 +1,9 @@
 #include "bridge.hpp"
 #include "util/common.hpp"
 #include "dsp/ringbuffer.hpp"
+#include "config.hpp"
+#include <unistd.hpp>
 
-#include <unistd.h>
-#if ARCH_WIN
-	#include <winsock2.h>
-#else
-	#include <sys/socket.h>
-	#include <netinet/in.h>
-	#include <arpa/inet.h>
-	#include <netinet/tcp.h>
-	#include <fcntl.h>
-#endif
 
 
 #include <thread>
@@ -161,20 +153,20 @@ struct BridgeClientConnection {
 			} break;
 
 			case AUDIO_PROCESS_COMMAND: {
-				uint32_t frames = 0;
+				 uint32_t frames = 0;
 				recv<uint32_t>(&frames);
 				if (frames == 0 || frames > (1<<16)) {
 					ready = false;
 					return;
 				}
 
-				float input[BRIDGE_INPUTS * frames];
+				float input[BRIDGE_OUTPUTS * 1000];
 				if (!recv(&input, BRIDGE_INPUTS * frames * sizeof(float))) {
 					debug("Failed to receive");
 					return;
 				}
 
-				float output[BRIDGE_OUTPUTS * frames];
+				float output[BRIDGE_OUTPUTS * 1000];
 				memset(&output, 0, sizeof(output));
 				processStream(input, output, frames);
 				if (!send(&output, BRIDGE_OUTPUTS * frames * sizeof(float))) {
@@ -239,18 +231,12 @@ struct BridgeClientConnection {
 
 static void clientRun(int client) {
 	defer({
-#if ARCH_WIN
 		if (shutdown(client, SD_SEND)) {
 			warn("Bridge client shutdown() failed");
 		}
 		if (closesocket(client)) {
 			warn("Bridge client closesocket() failed");
 		}
-#else
-		if (close(client)) {
-			warn("Bridge client close() failed");
-		}
-#endif
 	});
 
 #if ARCH_MAC

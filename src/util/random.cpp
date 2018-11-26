@@ -1,6 +1,6 @@
 #include "util/common.hpp"
-#include <time.h>
-#include <sys/time.h>
+#include "config.hpp"
+#include <corecrt_math_defines.h>
 
 
 namespace rack {

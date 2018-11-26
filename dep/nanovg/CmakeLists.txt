@@ -1,0 +1,4 @@
+file(GLOB nanovg_h src/*.h)
+file(GLOB nanovg_source src/*.c)
+
+add_library(nanovg ${nanovg_h} ${nanovg_h})
