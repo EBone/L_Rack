@@ -1,4 +1,4 @@
-#include "asset.hpp"
+﻿#include "asset.hpp"
 #include "util/common.hpp"
 #include "osdialog.h"
 

@@ -52,11 +52,17 @@ source_group(rack_ui_src FILES ${rack_ui_src})
 
 add_subdirectory(dep)
 
-add_executable(rack_exe ${rack_include} ${rack_dsp_include} ${rack_util_include} 
+
+add_executable(rack_exe src/main/main.cpp ${rack_include} ${rack_dsp_include} ${rack_util_include} 
+${rack_util_include} ${rack_include} ${rack_src} ${rack_dsp_src} ${rack_util_src} ${rack_app_src} 
+${rack_Core_src} ${rack_widgets_src} ${glfw_deps} ${rack_ui_src} dep/rtaudio/RtAudio.cpp dep/rtmidi/RtMidi.cpp)
+add_library(rack_lib STATIC  ${rack_include} ${rack_dsp_include} ${rack_util_include} 
 ${rack_util_include} ${rack_include} ${rack_src} ${rack_dsp_src} ${rack_util_src} ${rack_app_src} 
 ${rack_Core_src} ${rack_widgets_src} ${glfw_deps} ${rack_ui_src} dep/rtaudio/RtAudio.cpp dep/rtmidi/RtMidi.cpp)
 
-target_link_libraries(rack_exe pffft  jansson glfw glew OpenGl32 osdialog zip nanovg libeay32 ssleay32.lib WS2_32 libcurl Wldap32 libspeexdsp)
+target_link_libraries(rack_exe pffft  jansson glfw glew OpenGl32 osdialog zip nanovg libeay32 ssleay32 WS2_32 libcurl Wldap32 libspeexdsp)
+target_link_libraries(rack_lib pffft  jansson glfw glew OpenGl32 osdialog zip nanovg libeay32 ssleay32 WS2_32 libcurl Wldap32 libspeexdsp)
 add_subdirectory(test)
+add_subdirectory(plugins)
 
 

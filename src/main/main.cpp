@@ -26,7 +26,7 @@ using namespace rack;
 //extern int optind;
 //extern char* optarg;
 //extern int getopt(int argc, char* const argv[], const char* optstring);
-#include "getopt.h"
+#include "../getopt.h"
 
 int main(int argc, char* argv[]) {
 	bool devMode = false;

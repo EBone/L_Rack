@@ -1,4 +1,4 @@
-#include "Core.hpp"
+﻿#include "Core.hpp"
 
 
 void init(rack::Plugin *p) {
