@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "util/math.hpp"
+#include "util/common.hpp"
 #include <corecrt_math_defines.h>
 
 

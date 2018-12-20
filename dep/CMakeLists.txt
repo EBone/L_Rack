@@ -1,5 +1,7 @@
+#add_subdirectory(libzip)
 add_subdirectory(pffft)
 add_subdirectory(glfw)
 add_subdirectory(jansson)
 add_subdirectory(glew)
-include_directories(osdialog)
+#add_subdirectory(nanovg)
+add_subdirectory(osdialog)

@@ -1,4 +1,4 @@
-/*
+﻿/*
   add_from_filep.c -- test case for adding file to archive
   Copyright (C) 1999-2014 Dieter Baron and Thomas Klausner
 
@@ -36,7 +36,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "zipint.h"
 #include "zip.h"
 
 static const char *prg;

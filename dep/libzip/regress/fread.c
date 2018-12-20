@@ -1,4 +1,4 @@
-/*
+﻿/*
   fread.c -- test cases for reading from zip archives
   Copyright (C) 2004-2016 Dieter Baron and Thomas Klausner
 
@@ -43,7 +43,7 @@
 #ifndef HAVE_GETOPT
 #include "getopt.h"
 #endif
-
+#include "zipint.h"
 #include "zip.h"
 
 enum when {

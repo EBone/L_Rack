@@ -1,4 +1,4 @@
-/*
+﻿/*
  source_hole.c -- source for handling huge files that are mostly NULs
  Copyright (C) 2014-2016 Dieter Baron and Thomas Klausner
 
@@ -37,6 +37,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "zipint.h"
 #include "zip.h"
 
 /* public API */

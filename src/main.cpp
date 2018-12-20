@@ -1,4 +1,4 @@
-#include "util/common.hpp"
+﻿#include "util/common.hpp"
 #include "engine.hpp"
 #include "window.hpp"
 #include "app.hpp"
@@ -22,11 +22,11 @@
 #endif
 
 using namespace rack;
-extern int opterr;
-extern int optind;
-extern char* optarg;
-extern int getopt(int argc, char* const argv[], const char* optstring);
-
+//extern int opterr;
+//extern int optind;
+//extern char* optarg;
+//extern int getopt(int argc, char* const argv[], const char* optstring);
+#include "getopt.h"
 
 int main(int argc, char* argv[]) {
 	bool devMode = false;
@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
 	// Parse command line arguments
 	int c;
 	opterr = 0;
-	while ((c = getopt(argc, argv, "dg:l:")) != -1) {
+	while ((c = getopt(argc, argv, ":dg:l:")) != -1) {
 		switch (c) {
 			case 'd': {
 				devMode = true;

@@ -1,4 +1,4 @@
-/*
+﻿/*
   zipmerge.c -- merge zip archives
   Copyright (C) 2004-2014 Dieter Baron and Thomas Klausner
 
@@ -47,7 +47,7 @@
 #ifndef HAVE_GETOPT
 #include "getopt.h"
 #endif
-
+#include "zipint.h"
 #include "zip.h"
 #include "compat.h"
 

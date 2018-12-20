@@ -1,4 +1,4 @@
-# TODO:
+﻿# TODO:
 # 1. pkgconfig file not yet built.
 # 2. installation not tested.
 # 3. Problems generating html pages.
@@ -7,7 +7,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 PROJECT(libzip C)
-
+SET(CMAKE_INSTALL_PREFIX "E:/test")
 INCLUDE(CheckFunctionExists)
 INCLUDE(CheckIncludeFiles)
 INCLUDE(CheckSymbolExists)
@@ -86,17 +86,19 @@ CHECK_TYPE_SIZE("int" INT_LIBZIP)
 CHECK_TYPE_SIZE("long" LONG_LIBZIP)
 CHECK_TYPE_SIZE("long long" LONG_LONG_LIBZIP)
 CHECK_TYPE_SIZE("off_t" SIZEOF_OFF_T)
+message("size of off_t: ${SIZEOF_OFF_T}")
 CHECK_TYPE_SIZE("size_t" SIZE_T_LIBZIP)
 CHECK_TYPE_SIZE("ssize_t" SSIZE_T_LIBZIP)
 
 TEST_BIG_ENDIAN(WORDS_BIGENDIAN)
 
-FIND_PACKAGE(ZLIB REQUIRED)
+#FIND_PACKAGE(ZLIB REQUIRED)
+set(ZLIB_INCLUDE_DIR zlib)
 INCLUDE_DIRECTORIES(${ZLIB_INCLUDE_DIR})
-set(CMAKE_REQUIRED_INCLUDES ${ZLIB_INCLUDE_DIR})
-IF(ZLIB_VERSION_STRING VERSION_LESS "1.1.2")
-  MESSAGE(FATAL_ERROR "-- ZLIB version too old, please install at least v1.1.2")
-ENDIF(ZLIB_VERSION_STRING VERSION_LESS "1.1.2")
+#set(CMAKE_REQUIRED_INCLUDES ${ZLIB_INCLUDE_DIR})
+# IF(ZLIB_VERSION_STRING VERSION_LESS "1.1.2")
+  # MESSAGE(FATAL_ERROR "-- ZLIB version too old, please install at least v1.1.2")
+# ENDIF(ZLIB_VERSION_STRING VERSION_LESS "1.1.2")
 
 IF(MSVC)
 ADD_DEFINITIONS("-D_CRT_SECURE_NO_WARNINGS")
@@ -110,7 +112,7 @@ ADD_SUBDIRECTORY(man)
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(regress)
 ADD_SUBDIRECTORY(examples)
-
+add_subdirectory(zlib)
 # TODO: pkgconfig file
 
 # write out config file

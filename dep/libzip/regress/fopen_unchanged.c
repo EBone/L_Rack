@@ -1,4 +1,4 @@
-/*
+﻿/*
   fopen_unchanged.c -- test case for adding file and reading from unchanged
   Copyright (C) 2012-2015 Dieter Baron and Thomas Klausner
 
@@ -37,6 +37,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "zipint.h"
 #include "zip.h"
 
 const char *teststr="This is a test.\n";

@@ -1,4 +1,4 @@
-#include "plugin.hpp"
+﻿#include "plugin.hpp"
 #include "app.hpp"
 #include "asset.hpp"
 #include "util/request.hpp"
@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 //#include <sys/param.h> // for MAXPATHLEN
+#define MAXPATHLEN 65535
 #include <fcntl.h>
 #include <thread>
 #include <stdexcept>

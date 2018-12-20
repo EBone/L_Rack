@@ -1,4 +1,4 @@
-/*
+﻿/*
   zipcmp.c -- compare zip files
   Copyright (C) 2003-2016 Dieter Baron and Thomas Klausner
 
@@ -54,6 +54,7 @@
 #include "getopt.h"
 #endif
 
+#include "zipint.h"
 #include "zip.h"
 #include "compat.h"
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
   in-memory.c -- modify zip file in memory
   Copyright (C) 2014-2015 Dieter Baron and Thomas Klausner
 
@@ -36,7 +36,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
-
+#include "zipint.h"
 #include <zip.h>
 
 static int

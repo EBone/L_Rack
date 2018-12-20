@@ -1,4 +1,4 @@
-/*
+﻿/*
   ziptool.c -- tool for modifying zip archive in multiple ways
   Copyright (C) 2012-2016 Dieter Baron and Thomas Klausner
 
@@ -50,6 +50,7 @@
 #endif
 extern int optopt;
 
+#include "zipint.h"
 #include "zip.h"
 #include "compat.h"
 

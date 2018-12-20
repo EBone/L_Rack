@@ -1,4 +1,4 @@
-/*
+﻿/*
   tryopen.c -- tool for tests that try opening zip archives
   Copyright (C) 1999-2014 Dieter Baron and Thomas Klausner
 
@@ -44,6 +44,7 @@
 #include "getopt.h"
 #endif
 
+#include "zipint.h"
 #include "zip.h"
 #include "compat.h"
 

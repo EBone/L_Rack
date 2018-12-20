@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <assert.h>
 #include <string.h>
@@ -90,7 +90,7 @@ struct SampleRateConverter {
 		}
 		else {
 			// Simply copy the buffer without conversion
-			int frames = min(*inFrames, *outFrames);
+			int frames = min_rack(*inFrames, *outFrames);
 			memcpy(out, in, frames * sizeof(Frame<CHANNELS>));
 			*inFrames = frames;
 			*outFrames = frames;

@@ -1,4 +1,4 @@
-/*
+﻿/*
  hole.c -- convert huge files with mostly NULs to/from source_hole
  Copyright (C) 2014-2016 Dieter Baron and Thomas Klausner
  
@@ -45,6 +45,7 @@
 #include "getopt.h"
 #endif
 
+#include "zipint.h"
 #include "zip.h"
 
 /* public API */

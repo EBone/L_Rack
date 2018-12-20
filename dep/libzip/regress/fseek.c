@@ -1,4 +1,4 @@
-/*
+﻿/*
   fseek.c -- test tool for seeking in zip archives
   Copyright (C) 2016 Dieter Baron and Thomas Klausner
 
@@ -33,6 +33,7 @@
 
 #include <stdlib.h>
 
+#include "zipint.h"
 #include "zip.h"
 
 const char *prg;
