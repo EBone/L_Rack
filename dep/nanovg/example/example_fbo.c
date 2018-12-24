@@ -84,7 +84,6 @@ int loadFonts(NVGcontext* vg)
 	}
 	return 0;
 }
-
 void errorcb(int error, const char* desc)
 {
 	printf("GLFW error %d: %s\n", error, desc);
