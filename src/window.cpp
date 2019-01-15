@@ -1,4 +1,4 @@
-#include "window.hpp"
+﻿#include "window.hpp"
 #include "app.hpp"
 #include "asset.hpp"
 #include "gamepad.hpp"
@@ -10,7 +10,6 @@
 #include <thread>
 
 #include "osdialog.h"
-
 #define NANOVG_GL2_IMPLEMENTATION 1
 // #define NANOVG_GL3_IMPLEMENTATION 1
 // #define NANOVG_GLES2_IMPLEMENTATION 1
@@ -433,10 +432,11 @@ void windowDestroy() {
 void windowRun() {
 	assert(gWindow);
 	gGuiFrame = 0;
+
 	while(!glfwWindowShouldClose(gWindow)) {
 		double startTime = glfwGetTime();
 		gGuiFrame++;
-
+       
 		// Poll events
 		glfwPollEvents();
 		{

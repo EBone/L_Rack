@@ -1,4 +1,4 @@
-#include "widgets.hpp"
+﻿#include "widgets.hpp"
 #include "app.hpp"
 #include <algorithm>
 

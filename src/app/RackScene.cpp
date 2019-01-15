@@ -1,4 +1,4 @@
-#include "app.hpp"
+﻿#include "app.hpp"
 #include "window.hpp"
 #include "util/request.hpp"
 #include "osdialog.h"

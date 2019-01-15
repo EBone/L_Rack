@@ -52,7 +52,6 @@ int main(int argc, char* argv[]) {
 	if (optind < argc) {
 		patchFile = argv[optind];
 	}
-
 #ifdef ARCH_WIN
 	// Windows global mutex to prevent multiple instances
 	// Handle will be closed by Windows when the process ends

@@ -118,7 +118,7 @@ SimpleClockWidget::SimpleClockWidget(SimpleClock *module) : ModuleWidget(module)
 	{
 		SVGPanel *panel = new SVGPanel();
 		panel->box.size = box.size;
-        panel->setBackground(SVG::load(assetGlobal("res/WavHeadPanel.svg")));//assetPlugin(plugin, "res/WavHeadPanel.svg")));
+        panel->setBackground(SVG::load(assetPlugin(plugin, "res/WavHeadPanel.svg")));//SVG::load(assetGlobal("res/WavHeadPanel.svg")));//assetPlugin(plugin, "res/WavHeadPanel.svg")));
 		addChild(panel);
 	}
 

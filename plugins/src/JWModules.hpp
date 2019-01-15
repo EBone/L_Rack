@@ -1,10 +1,10 @@
 ﻿#pragma once
 #include "rack.hpp"
 #include "QuantizeUtils.cpp"
-
+#define DLL_EXPORT  __declspec(dllexport)
 using namespace rack;
 extern Plugin *plugin;
-
+extern "C" DLL_EXPORT void init_plugin(rack::Plugin *p);
 ////////////////////////////////////////////// LABELS //////////////////////////////////////////////
 
 struct CenteredLabel : Widget {

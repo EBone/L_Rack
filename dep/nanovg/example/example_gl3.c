@@ -1,4 +1,4 @@
-//
+﻿//
 // Copyright (c) 2013 Mikko Mononen memon@inside.org
 //
 // This software is provided 'as-is', without any express or implied
@@ -15,7 +15,7 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 //
-
+#include <windows.h>
 #include <stdio.h>
 #ifdef NANOVG_GLEW
 #	include <GL/glew.h>
@@ -55,8 +55,18 @@ static void key(GLFWwindow* window, int key, int scancode, int action, int mods)
 		premult = !premult;
 }
 
-int main()
+int WINAPI WinMain(HINSTANCE hInstance, 
+
+    HINSTANCE hPrevInstance,   //这个参数在Win32环境下总是0，已经废弃不用了   
+
+    char * lpCmdLine, //指向以/0结尾的命令行，不包括EXE本身的文件名，
+
+                      //以后随时可以用GetCommandLine()来获取完整的命令行   
+
+    int nCmdShow      //指明应该以什么方式显示主窗口
+)
 {
+
 	GLFWwindow* window;
 	DemoData data;
 	NVGcontext* vg = NULL;
@@ -125,7 +135,7 @@ int main()
 	glfwSetTime(0);
 	prevt = glfwGetTime();
 
-	while (!glfwWindowShouldClose(window))
+	while (glfwWindowShouldClose(window))
 	{
 		double mx, my, t, dt;
 		int winWidth, winHeight;

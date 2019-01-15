@@ -79,7 +79,7 @@ static bool loadPlugin(std::string path) {
 	// Load dynamic/shared library
 #if ARCH_WIN
 	SetErrorMode(SEM_NOOPENFILEERRORBOX | SEM_FAILCRITICALERRORS);
-	HINSTANCE handle = LoadLibrary(libraryFilename.c_str());
+    HINSTANCE handle = LoadLibrary("plugin.dll");//libraryFilename.c_str());
 	SetErrorMode(0);
 	if (!handle) {
 		int error = GetLastError();
@@ -98,7 +98,7 @@ static bool loadPlugin(std::string path) {
 	typedef void (*InitCallback)(Plugin *);
 	InitCallback initCallback;
 #if ARCH_WIN
-	initCallback = (InitCallback) GetProcAddress(handle, "init");
+	initCallback = (InitCallback) GetProcAddress((HMODULE)handle, "init_plugin");
 #else
 	initCallback = (InitCallback) dlsym(handle, "init");
 #endif
@@ -109,7 +109,7 @@ static bool loadPlugin(std::string path) {
 
 	// Construct and initialize Plugin instance
 	Plugin *plugin = new Plugin();
-	plugin->path = path;
+    plugin->path = "";//path;
 	plugin->handle = handle;
 	initCallback(plugin);
 
