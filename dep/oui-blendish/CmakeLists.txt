@@ -1,0 +1,8 @@
+Project(Blendish_T)
+
+include_directories(../glfw/include)
+file(GLOB b_src *.h)
+add_executable(blendish example.cpp ${b_src})
+target_link_libraries(blendish glfw OpenGl32 glew32d nanovg)
+add_executable(blendish_test main.cpp ${b_src})
+target_link_libraries(blendish_test glfw OpenGl32 glew32d nanovg)

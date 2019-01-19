@@ -1,12 +1,12 @@
 ﻿cmake_minimum_required(VERSION 3.0)
 project("Rack")
 
-Set(LIBZIPDIR "E:/Libs/libzip")
-Set(LIBOpenSllDIR "E:/Libs/openssl")
-Set(LIBNanoVgDir "E:/Libs/nanovg")
-Set(LIBZlibDir "E:/Libs/zlib")
-Set(LIBCurlDir "E:/Libs/libcurl")
-Set(LIBSpeexDspDir "E:/Codes/L_Rack/dep/speexdsp/lib")
+Set(LIBZIPDIR "C:/wkspace/L_Rack/Libs/libzip")
+Set(LIBOpenSllDIR "C:/wkspace/L_Rack/Libs/openssl")
+Set(LIBNanoVgDir "C:/wkspace/L_Rack/Libs/nanovg")
+Set(LIBZlibDir "C:/wkspace/L_Rack/Libs/zlib")
+Set(LIBCurlDir "C:/wkspace/L_Rack/Libs/libcurl")
+Set(LIBSpeexDspDir "C:/wkspace/L_Rack/Libs/libspeexdsp")
 include_directories(./include ./dep ./include/dep ./dep/pffft ./dep/glfw/include/GLFW ./dep/glew/include)
 include_directories(./dep/nanovg/src ./dep/rtaudio/include ./dep/nanosvg/src ./dep/jansson/src)
 include_directories(./dep/oui-blendish)
@@ -60,8 +60,8 @@ add_library(rack_lib STATIC  ${rack_include} ${rack_dsp_include} ${rack_util_inc
 ${rack_util_include} ${rack_include} ${rack_src} ${rack_dsp_src} ${rack_util_src} ${rack_app_src} 
 ${rack_Core_src} ${rack_widgets_src} ${glfw_deps} ${rack_ui_src} dep/rtaudio/RtAudio.cpp dep/rtmidi/RtMidi.cpp)
 
-target_link_libraries(rack_exe pffft  jansson glfw glew OpenGl32 osdialog zip nanovg libeay32 ssleay32 WS2_32 libcurl Wldap32 libspeexdsp)
-target_link_libraries(rack_lib pffft  jansson glfw glew OpenGl32 osdialog zip nanovg libeay32 ssleay32 WS2_32 libcurl Wldap32 libspeexdsp)
+target_link_libraries(rack_exe pffft  jansson glfw glew OpenGl32 osdialog zip nanovg libeay32 ssleay32 WS2_32 libcurl Wldap32 libspeexdsp zlib)
+target_link_libraries(rack_lib pffft  jansson glfw glew OpenGl32 osdialog zip nanovg libeay32 ssleay32 WS2_32 libcurl Wldap32 libspeexdsp zlib)
 add_subdirectory(test)
 add_subdirectory(plugins)
 

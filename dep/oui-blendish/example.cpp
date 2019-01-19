@@ -1,6 +1,6 @@
 //
 // based on NanoVG's example code by Mikko Mononen
-
+#define NANOVG_GLEW
 #include <stdio.h>
 #ifdef NANOVG_GLEW
 #	include <GL/glew.h>
@@ -107,8 +107,8 @@ void ui_handler(int item, UIevent event) {
 }
 
 void init(NVGcontext *vg) {
-    bndSetFont(nvgCreateFont(vg, "system", "../DejaVuSans.ttf"));
-    bndSetIconImage(nvgCreateImage(vg, "../blender_icons16.png", 0));
+    bndSetFont(nvgCreateFont(vg, "system", "C:/wkspace/L_Rack/dep/oui-blendish/DejaVuSans.ttf"));
+    bndSetIconImage(nvgCreateImage(vg, "C:/wkspace/L_Rack/dep/oui-blendish/blender_icons16.png", 0));
 }
 
 void testrect(NVGcontext *vg, UIrect rect) {
