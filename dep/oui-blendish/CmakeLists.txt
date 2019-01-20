@@ -1,6 +1,8 @@
+Project(Blendish_T)
 
-
-Set(LIBGLEW "E:/Libs/glew")
-link_directories(${LIBGLEW})
-add_executable(blendish_example example.cpp oui.h blendish.h)
-target_link_libraries(blendish_example glfw glew32d nanovg OpenGL32)
+include_directories(../glfw/include)
+file(GLOB b_src *.h)
+add_executable(blendish example.cpp ${b_src})
+target_link_libraries(blendish glfw OpenGl32 glew32d nanovg)
+add_executable(blendish_test main.cpp ${b_src})
+target_link_libraries(blendish_test glfw OpenGl32 glew32d nanovg)
