@@ -1,0 +1,6 @@
+
+
+Set(LIBGLEW "E:/Libs/glew")
+link_directories(${LIBGLEW})
+add_executable(blendish_example example.cpp oui.h blendish.h)
+target_link_libraries(blendish_example glfw glew32d nanovg OpenGL32)

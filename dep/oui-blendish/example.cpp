@@ -1,5 +1,6 @@
-//
+﻿//
 // based on NanoVG's example code by Mikko Mononen
+#define NANOVG_GLEW
 
 #include <stdio.h>
 #ifdef NANOVG_GLEW
@@ -107,8 +108,8 @@ void ui_handler(int item, UIevent event) {
 }
 
 void init(NVGcontext *vg) {
-    bndSetFont(nvgCreateFont(vg, "system", "../DejaVuSans.ttf"));
-    bndSetIconImage(nvgCreateImage(vg, "../blender_icons16.png", 0));
+    bndSetFont(nvgCreateFont(vg, "system", "E:/Codes/L_Rack/dep/oui-blendish/DejaVuSans.ttf"));
+    bndSetIconImage(nvgCreateImage(vg, "E:/Codes/L_Rack/dep/oui-blendish/blender_icons16.png", 0));
 }
 
 void testrect(NVGcontext *vg, UIrect rect) {
@@ -717,10 +718,10 @@ void draw_demostuff(NVGcontext *vg, int x, int y, float w, float h) {
     int idx2 = idx1 + (t%(textlen-idx1));
     
     ry += 25;
-    bndTextField(vg,rx,ry,240,BND_WIDGET_HEIGHT,BND_CORNER_NONE,BND_DEFAULT,
+    bndTextField(vg,rx,ry,240,BND_WIDGET_HEIGHT,BND_CORNER_NONE, BND_HOVER,
         -1, edit_text, idx1, idx2);
     ry += 25;
-    bndTextField(vg,rx,ry,240,BND_WIDGET_HEIGHT,BND_CORNER_NONE,BND_HOVER,
+    bndTextField(vg,rx,ry,240,BND_WIDGET_HEIGHT,BND_CORNER_NONE, BND_DEFAULT,
         -1, edit_text, idx1, idx2);
     ry += 25;
     bndTextField(vg,rx,ry,240,BND_WIDGET_HEIGHT,BND_CORNER_NONE,BND_ACTIVE,

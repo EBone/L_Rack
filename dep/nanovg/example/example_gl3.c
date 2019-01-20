@@ -135,7 +135,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	glfwSetTime(0);
 	prevt = glfwGetTime();
 
-	while (glfwWindowShouldClose(window))
+	while (!glfwWindowShouldClose(window))
 	{
 		double mx, my, t, dt;
 		int winWidth, winHeight;

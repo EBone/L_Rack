@@ -1,4 +1,4 @@
-#include "demo.h"
+﻿#include "demo.h"
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -73,8 +73,8 @@ void drawWindow(NVGcontext* vg, const char* title, float x, float y, float w, fl
 	// Window
 	nvgBeginPath(vg);
 	nvgRoundedRect(vg, x,y, w,h, cornerRadius);
-	nvgFillColor(vg, nvgRGBA(28,30,34,192));
-//	nvgFillColor(vg, nvgRGBA(0,0,0,128));
+	//nvgFillColor(vg, nvgRGBA(28,30,34,192));
+	nvgFillColor(vg, nvgRGBA(0,0,0,128));
 	nvgFill(vg);
 
 	// Drop shadow
@@ -102,9 +102,9 @@ void drawWindow(NVGcontext* vg, const char* title, float x, float y, float w, fl
 	nvgFontFace(vg, "sans-bold");
 	nvgTextAlign(vg,NVG_ALIGN_CENTER|NVG_ALIGN_MIDDLE);
 
-	nvgFontBlur(vg,2);
+	/*nvgFontBlur(vg,2);
 	nvgFillColor(vg, nvgRGBA(0,0,0,128));
-	nvgText(vg, x+w/2,y+16+1, title, NULL);
+	nvgText(vg, x+w/2,y+16+1, title, NULL);*/
 
 	nvgFontBlur(vg,0);
 	nvgFillColor(vg, nvgRGBA(220,220,220,160));
@@ -686,18 +686,19 @@ void drawColorwheel(NVGcontext* vg, float x, float y, float w, float h, float t)
 	nvgStrokeWidth(vg, 1.0f);
 	nvgStroke(vg);
 
+    
 	// Selector
 	nvgSave(vg);
 	nvgTranslate(vg, cx,cy);
 	nvgRotate(vg, hue*NVG_PI*2);
-
+    
 	// Marker on
 	nvgStrokeWidth(vg, 2.0f);
 	nvgBeginPath(vg);
 	nvgRect(vg, r0-1,-3,r1-r0+2,6);
 	nvgStrokeColor(vg, nvgRGBA(255,255,255,192));
 	nvgStroke(vg);
-
+    
 	paint = nvgBoxGradient(vg, r0-3,-5,r1-r0+6,10, 2,4, nvgRGBA(0,0,0,128), nvgRGBA(0,0,0,0));
 	nvgBeginPath(vg);
 	nvgRect(vg, r0-2-10,-4-10,r1-r0+4+20,8+20);
@@ -705,7 +706,7 @@ void drawColorwheel(NVGcontext* vg, float x, float y, float w, float h, float t)
 	nvgPathWinding(vg, NVG_HOLE);
 	nvgFillPaint(vg, paint);
 	nvgFill(vg);
-
+   
 	// Center triangle
 	r = r0 - 6;
 	ax = cosf(120.0f/180.0f*NVG_PI) * r;
@@ -725,7 +726,7 @@ void drawColorwheel(NVGcontext* vg, float x, float y, float w, float h, float t)
 	nvgFill(vg);
 	nvgStrokeColor(vg, nvgRGBA(0,0,0,64));
 	nvgStroke(vg);
-
+    
 	// Select circle on triangle
 	ax = cosf(120.0f/180.0f*NVG_PI) * r*0.3f;
 	ay = sinf(120.0f/180.0f*NVG_PI) * r*0.4f;
@@ -734,7 +735,7 @@ void drawColorwheel(NVGcontext* vg, float x, float y, float w, float h, float t)
 	nvgCircle(vg, ax,ay,5);
 	nvgStrokeColor(vg, nvgRGBA(255,255,255,192));
 	nvgStroke(vg);
-
+    
 	paint = nvgRadialGradient(vg, ax,ay, 7,9, nvgRGBA(0,0,0,64), nvgRGBA(0,0,0,0));
 	nvgBeginPath(vg);
 	nvgRect(vg, ax-20,ay-20,40,40);
@@ -744,8 +745,7 @@ void drawColorwheel(NVGcontext* vg, float x, float y, float w, float h, float t)
 	nvgFill(vg);
 
 	nvgRestore(vg);
-
-	nvgRestore(vg);
+    nvgRestore(vg);
 }
 
 void drawLines(NVGcontext* vg, float x, float y, float w, float h, float t)
@@ -1067,7 +1067,7 @@ void renderDemo(NVGcontext* vg, float mx, float my, float width, float height,
 
 	drawEyes(vg, width - 250, 50, 150, 100, mx, my, t);
 	drawParagraph(vg, width - 450, 50, 150, 100, mx, my);
-	drawGraph(vg, 0, height/2, width, height/2, t);
+	//drawGraph(vg, 0, height/2, width, height/2, t);
 	drawColorwheel(vg, width - 300, height - 300, 250.0f, 250.0f, t);
 
 	// Line joints
@@ -1079,7 +1079,7 @@ void renderDemo(NVGcontext* vg, float mx, float my, float width, float height,
 	// Line caps
 	drawCaps(vg, 10, 300, 30);
 
-	drawScissor(vg, 50, height-80, t);
+    drawScissor(vg, 50, height - 80, t);
 
 	nvgSave(vg);
 	if (blowup) {
@@ -1102,20 +1102,20 @@ void renderDemo(NVGcontext* vg, float mx, float my, float width, float height,
 	drawEditBox(vg, "Email",  x,y, 280,28);
 	y += 35;
 	drawEditBox(vg, "Password", x,y, 280,28);
-	y += 38;
-	drawCheckBox(vg, "Remember me", x,y, 140,28);
-	drawButton(vg, ICON_LOGIN, "Sign in", x+138, y, 140, 28, nvgRGBA(0,96,128,255));
-	y += 45;
+	//y += 38;
+	//drawCheckBox(vg, "Remember me", x,y, 140,28);
+	//drawButton(vg, ICON_LOGIN, "Sign in", x+138, y, 140, 28, nvgRGBA(0,96,128,255));
+	//y += 45;
 
-	// Slider
-	drawLabel(vg, "Diameter", x,y, 280,20);
-	y += 25;
-	drawEditBoxNum(vg, "123.00", "px", x+180,y, 100,28);
-	drawSlider(vg, 0.4f, x,y, 170,28);
-	y += 55;
+	//// Slider
+	//drawLabel(vg, "Diameter", x,y, 280,20);
+	//y += 25;
+	//drawEditBoxNum(vg, "123.00", "px", x+180,y, 100,28);
+	//drawSlider(vg, 0.4f, x,y, 170,28);
+	//y += 55;
 
-	drawButton(vg, ICON_TRASH, "Delete", x, y, 160, 28, nvgRGBA(128,16,8,255));
-	drawButton(vg, 0, "Cancel", x+170, y, 110, 28, nvgRGBA(0,0,0,0));
+	//drawButton(vg, ICON_TRASH, "Delete", x, y, 160, 28, nvgRGBA(128,16,8,255));
+	//drawButton(vg, 0, "Cancel", x+170, y, 110, 28, nvgRGBA(0,0,0,0));
 
 	// Thumbnails box
 	drawThumbnails(vg, 365, popy-30, 160, 300, data->images, 12, t);
